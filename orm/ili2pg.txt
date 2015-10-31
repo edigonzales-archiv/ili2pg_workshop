@@ -1,0 +1,7 @@
+java -jar ../ili2pg/ili2pg-2.3.0/ili2pg.jar --schemaimport --dbhost localhost --dbport 5432 --dbdatabase xanadu2 --dbusr stefan --dbpwd ziegler12 --modeldir . --models Buildings_V2 --createscript buildings_v2.sql --createEnumTabs --nameByTopic --dbschema buildings_v2 
+
+
+java -jar ../ili2pg/ili2pg-2.3.0/ili2pg.jar --schemaimport --dbhost localhost --dbport 5432 --dbdatabase xanadu2 --dbusr stefan --dbpwd ziegler12 --modeldir . --models Buildings_V1 --createscript buildings_v1.sql --createEnumTabs --nameByTopic --dbschema buildings_v1 
+
+
+java -jar ../ili2pg/ili2pg-2.3.0/ili2pg.jar --schemaimport --dbhost localhost --dbport 5432 --dbdatabase xanadu2 --dbusr stefan --dbpwd ziegler12 --modeldir . --models Buildings_V1 --createscript buildings_v1.sql --createEnumTabs --nameByTopic --strokeArcs --dbschema buildings_v1 

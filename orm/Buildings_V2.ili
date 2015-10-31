@@ -1,0 +1,46 @@
+INTERLIS 2.3;
+
+/** Model for showing ORM. No Geometry!
+ */
+MODEL Buildings_V2 (en)
+AT "mailto:stefan.ziegler@bd.so.ch"
+VERSION "2015-10-31"  =
+
+  TOPIC Buildings =
+
+    DOMAIN
+
+      Roof_types = (
+        /** Pultdach
+         */
+        shed,
+        /** Flachdach
+         */
+        terrace
+      );
+
+    STRUCTURE Address =
+      House_number : MANDATORY TEXT*20;
+      Street_name : MANDATORY TEXT*255;
+      RegBL_EGID : 1 .. 999999999;
+    END Address;
+
+    CLASS Building (ABSTRACT) =
+      Storeys : MANDATORY 1 .. 99;
+      Roof : Roof_types;
+      Addresses : BAG {0..*} OF Buildings_V2.Buildings.Address;
+    END Building;
+
+    CLASS AdministrativeBuilding
+    EXTENDS Building =
+      Department : TEXT*255;
+    END AdministrativeBuilding;
+
+    CLASS ApartmentBuilding
+    EXTENDS Building =
+      Apartments : MANDATORY 1 .. 99;
+    END ApartmentBuilding;
+
+  END Buildings;
+
+END Buildings_V2.
