@@ -3329,8 +3329,8 @@
 <Specification>false</Specification>
 </ch.ehi.uml1_4.foundation.core.ElementOwnership>
 <ch.ehi.umleditor.umlpresentation.Diagram TID="865">
-<ShowAttributeMultiplicity>false</ShowAttributeMultiplicity>
-<ShowAttributeType>false</ShowAttributeType>
+<ShowAttributeMultiplicity>true</ShowAttributeMultiplicity>
+<ShowAttributeType>true</ShowAttributeType>
 <Namespace>769</Namespace>
 <Documentation>867</Documentation>
 <ShowNamePrefix>0</ShowNamePrefix>
@@ -3378,11 +3378,6 @@
 <Name>882</Name>
 <Presentation>869</Presentation>
 </ch.ehi.interlis.modeltopicclass.ClassExtends>
-<ch.ehi.umleditor.umlpresentation.Color TID="875">
-<Red>255</Red>
-<Green>255</Green>
-<Blue>255</Blue>
-</ch.ehi.umleditor.umlpresentation.Color>
 <ch.ehi.basics.types.NlsString TID="881">
 </ch.ehi.basics.types.NlsString>
 <ch.ehi.umleditor.umlpresentation.Class TID="873">
@@ -3394,9 +3389,9 @@
 <ShowConstraints>0</ShowConstraints>
 <Background>883</Background>
 <Foreground>884</Foreground>
-<East>286</East>
-<South>207</South>
-<Width>145</Width>
+<East>321</East>
+<South>260</South>
+<Width>166</Width>
 <Height>46</Height>
 <Diagram>865</Diagram>
 <Documentation>885</Documentation>
@@ -3439,9 +3434,9 @@
 <ShowConstraints>0</ShowConstraints>
 <Background>890</Background>
 <Foreground>891</Foreground>
-<East>305</East>
-<South>46</South>
-<Width>102</Width>
+<East>422</East>
+<South>48</South>
+<Width>178</Width>
 <Height>76</Height>
 <Diagram>865</Diagram>
 <Documentation>892</Documentation>
@@ -3557,6 +3552,11 @@
 <ch.ehi.basics.types.NlsString TID="857">
 <Entry TID="920" language="en" translation="Buildings"/>
 </ch.ehi.basics.types.NlsString>
+<ch.ehi.umleditor.umlpresentation.Color TID="883">
+<Red>255</Red>
+<Green>153</Green>
+<Blue>153</Blue>
+</ch.ehi.umleditor.umlpresentation.Color>
 <ch.ehi.interlis.domainsandconstants.basetypes.Text TID="908">
 <Multiline>false</Multiline>
 <MaxLength>255</MaxLength>
@@ -3649,10 +3649,10 @@
 <ShowConstraints>0</ShowConstraints>
 <Background>941</Background>
 <Foreground>942</Foreground>
-<East>98</East>
-<South>207</South>
-<Width>86</Width>
-<Height>31</Height>
+<East>56</East>
+<South>261</South>
+<Width>123</Width>
+<Height>46</Height>
 <Diagram>865</Diagram>
 <Documentation>943</Documentation>
 <Subject>889</Subject>
@@ -3665,8 +3665,8 @@
 </ch.ehi.umleditor.umlpresentation.Color>
 <ch.ehi.umleditor.umlpresentation.Color TID="941">
 <Red>255</Red>
-<Green>255</Green>
-<Blue>255</Blue>
+<Green>153</Green>
+<Blue>153</Blue>
 </ch.ehi.umleditor.umlpresentation.Color>
 <ch.ehi.interlis.domainsandconstants.basetypes.EnumElement TID="930">
 <NameList>944</NameList>
@@ -3681,6 +3681,11 @@
 <ch.ehi.basics.types.NlsString TID="944">
 <Entry TID="948" language="en" translation="EnumElement91"/>
 </ch.ehi.basics.types.NlsString>
+<ch.ehi.umleditor.umlpresentation.Color TID="890">
+<Red>153</Red>
+<Green>255</Green>
+<Blue>153</Blue>
+</ch.ehi.umleditor.umlpresentation.Color>
 <ch.ehi.uml1_4.foundation.core.ElementOwnership TID="863">
 <Namespace>769</Namespace>
 <OwnedElement>880</OwnedElement>
@@ -3784,11 +3789,6 @@
 <Upper>1</Upper>
 <Multiplicity>904</Multiplicity>
 </ch.ehi.uml1_4.implementation.UmlMultiplicityRange>
-<ch.ehi.umleditor.umlpresentation.Color TID="890">
-<Red>255</Red>
-<Green>255</Green>
-<Blue>255</Blue>
-</ch.ehi.umleditor.umlpresentation.Color>
 <ch.ehi.uml1_4.implementation.UmlMultiplicity TID="954">
 <Range>968</Range>
 </ch.ehi.uml1_4.implementation.UmlMultiplicity>
@@ -3842,6 +3842,11 @@
 <Red>0</Red>
 <Green>0</Green>
 <Blue>0</Blue>
+</ch.ehi.umleditor.umlpresentation.Color>
+<ch.ehi.umleditor.umlpresentation.Color TID="875">
+<Red>255</Red>
+<Green>153</Green>
+<Blue>153</Blue>
 </ch.ehi.umleditor.umlpresentation.Color>
 <ch.ehi.basics.types.NlsString TID="877">
 </ch.ehi.basics.types.NlsString>
@@ -4914,11 +4919,6 @@
 <ch.ehi.basics.types.NlsString TID="172">
 <Entry TID="1168" language="en" translation="UmlUsage8"/>
 </ch.ehi.basics.types.NlsString>
-<ch.ehi.umleditor.umlpresentation.Color TID="883">
-<Red>255</Red>
-<Green>255</Green>
-<Blue>255</Blue>
-</ch.ehi.umleditor.umlpresentation.Color>
 <ch.ehi.uml1_4.foundation.core.ElementOwnership TID="67">
 <Namespace>14</Namespace>
 <OwnedElement>310</OwnedElement>

@@ -5,3 +5,17 @@ java -jar ../ili2pg/ili2pg-2.3.0/ili2pg.jar --schemaimport --dbhost localhost --
 
 
 java -jar ../ili2pg/ili2pg-2.3.0/ili2pg.jar --schemaimport --dbhost localhost --dbport 5432 --dbdatabase xanadu2 --dbusr stefan --dbpwd ziegler12 --modeldir . --models Buildings_V1 --createscript buildings_v1.sql --createEnumTabs --nameByTopic --strokeArcs --dbschema buildings_v1 
+
+
+java -jar ../ili2pg/ili2pg-2.3.0/ili2pg.jar --export --dbhost localhost --dbport 5432 --dbdatabase xanadu2 --dbusr stefan --dbpwd ziegler12 --models Buildings_V1 --dbschema buildings_v1 buildings_v1.xtf
+
+xmllint --format buildings_v1.xtf -o buildings_v1.xtf
+
+
+java -jar ../ili2pg/ili2pg-2.3.0/ili2c.jar -oXSD Buildings_V1.ili > Buildings_V1.xsd
+
+CREATE SCHEMA buildings_v1_ogr
+  AUTHORIZATION stefan;
+
+ogr2ogr -f PostgreSQL PG:"dbname='xanadu2' host='localhost' port='5432' user='stefan' password='ziegler12'" buildings_v1.gml -lco SCHEMA=buildings_v1_ogr
+
