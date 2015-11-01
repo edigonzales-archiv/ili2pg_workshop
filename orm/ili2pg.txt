@@ -17,5 +17,5 @@ java -jar ../ili2pg/ili2pg-2.3.0/ili2c.jar -oXSD Buildings_V1.ili > Buildings_V1
 CREATE SCHEMA buildings_v1_ogr
   AUTHORIZATION stefan;
 
-ogr2ogr -f PostgreSQL PG:"dbname='xanadu2' host='localhost' port='5432' user='stefan' password='ziegler12'" buildings_v1.gml -lco SCHEMA=buildings_v1_ogr
+ogr2ogr -f PostgreSQL PG:"dbname='xanadu2' host='localhost' port='5432' user='stefan' password='ziegler12'" buildings_v1.gml,xsd=Buildings_V1.xsd -lco SCHEMA=buildings_v1_ogr
 
