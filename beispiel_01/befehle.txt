@@ -4,25 +4,52 @@ Beispiel 1:
 java -jar /home/stefan/Apps/ili2pg-2.3.0/ili2pg.jar --help
 
 # schema import
-java -jar /home/stefan/Apps/ili2pg-2.3.0/ili2pg.jar --schemaimport --dbhost localhost --dbport 5432 --dbdatabase rosebud2 --dbusr stefan --dbpwd ziegler12 --dbschema dm01avch24d --nameByTopic --modeldir http://models.geo.admin.ch --models DM01AVCH24D
+java -jar /home/stefan/Apps/ili2pg-2.3.0/ili2pg.jar --schemaimport --dbhost localhost --dbport 5432 --dbdatabase rosebud2 --dbusr stefan --dbpwd ziegler12 --dbschema beispiel01 --nameByTopic --modeldir http://models.geo.admin.ch --models DM01AVCH24D
 
 
 # import 1st itf 
-java -jar /home/stefan/Apps/ili2pg-2.3.0/ili2pg.jar --import --dbhost localhost --dbport 5432 --dbdatabase rosebud2 --dbusr stefan --dbpwd ziegler12 --dbschema dm01avch24d --nameByTopic --modeldir http://models.geo.admin.ch --models DM01AVCH24D ch_254900.itf 
+java -jar /home/stefan/Apps/ili2pg-2.3.0/ili2pg.jar --import --dbhost localhost --dbport 5432 --dbdatabase rosebud2 --dbusr stefan --dbpwd ziegler12 --dbschema beispiel01 --nameByTopic --modeldir http://models.geo.admin.ch --models DM01AVCH24D ch_254900.itf 
 
 
 # export 1st itf
-java -jar /home/stefan/Apps/ili2pg-2.3.0/ili2pg.jar --export --dbhost localhost --dbport 5432 --dbdatabase rosebud2 --dbusr stefan --dbpwd ziegler12 --dbschema dm01avch24d --nameByTopic --models DM01AVCH24D ch_254900_export.itf 
+java -jar /home/stefan/Apps/ili2pg-2.3.0/ili2pg.jar --export --dbhost localhost --dbport 5432 --dbdatabase rosebud2 --dbusr stefan --dbpwd ziegler12 --dbschema beispiel01 --nameByTopic --models DM01AVCH24D ch_254900_export.itf 
 
 
 # import 2nd itf 
-java -jar /home/stefan/Apps/ili2pg-2.3.0/ili2pg.jar --import --dbhost localhost --dbport 5432 --dbdatabase rosebud2 --dbusr stefan --dbpwd ziegler12 --dbschema dm01avch24d --nameByTopic --modeldir http://models.geo.admin.ch --models DM01AVCH24D ch_252400.itf 
+java -jar /home/stefan/Apps/ili2pg-2.3.0/ili2pg.jar --import --dbhost localhost --dbport 5432 --dbdatabase rosebud2 --dbusr stefan --dbpwd ziegler12 --dbschema beispiel01 --nameByTopic --modeldir http://models.geo.admin.ch --models DM01AVCH24D ch_252400.itf 
 
 
 #export all
-java -jar /home/stefan/Apps/ili2pg-2.3.0/ili2pg.jar --export --dbhost localhost --dbport 5432 --dbdatabase rosebud2 --dbusr stefan --dbpwd ziegler12 --dbschema dm01avch24d --nameByTopic --models DM01AVCH24D export.itf 
+java -jar /home/stefan/Apps/ili2pg-2.3.0/ili2pg.jar --export --dbhost localhost --dbport 5432 --dbdatabase rosebud2 --dbusr stefan --dbpwd ziegler12 --dbschema beispiel01 --nameByTopic --models DM01AVCH24D export.itf 
 
 
 
 Beispiel 2:
 ===========
+
+# import itf
+java -jar /home/stefan/Apps/ili2pg-2.3.0/ili2pg.jar --import --dbhost localhost --dbport 5432 --dbdatabase rosebud2 --dbusr stefan --dbpwd ziegler12 --dbschema beispiel02 --nameByTopic --modeldir http://models.geo.admin.ch --models DM01AVCH24D ch_254900.itf 
+
+
+# create view
+CREATE OR REPLACE VIEW beispiel02.v_liegenschaften_liegenschaft AS
+
+SELECT ls.*, gs.nummer 
+FROM beispiel02.liegenschaften_grundstueck AS gs, 
+     beispiel02.liegenschaften_liegenschaft AS ls
+WHERE gs.t_id = ls.liegenschaft_von;
+
+
+
+Beispiel 3:
+===========
+
+# import itf
+java -jar /home/stefan/Apps/ili2pg-2.3.0/ili2pg.jar --import --dbhost localhost --dbport 5432 --dbdatabase rosebud2 --dbusr stefan --dbpwd ziegler12 --dbschema beispiel03 --nameByTopic --createEnumColAsItfCode --modeldir http://models.geo.admin.ch --models DM01AVCH24D ch_254900.itf 
+
+# schema import mopublic v1.3
+java -jar /home/stefan/Apps/ili2pg-2.3.0/ili2pg.jar --schemaimport --dbhost localhost --dbport 5432 --dbdatabase rosebud2 --dbusr stefan --dbpwd ziegler12 --dbschema beispiel03_export --nameByTopic --modeldir http://models.geo.admin.ch --models MOpublic03_ili2_v13
+
+# insert into control_point
+file://insert_into_control_points.sql
+
