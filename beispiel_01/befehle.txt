@@ -1,0 +1,28 @@
+Beispiel 1:
+===========
+
+java -jar /home/stefan/Apps/ili2pg-2.3.0/ili2pg.jar --help
+
+# schema import
+java -jar /home/stefan/Apps/ili2pg-2.3.0/ili2pg.jar --schemaimport --dbhost localhost --dbport 5432 --dbdatabase rosebud2 --dbusr stefan --dbpwd ziegler12 --dbschema dm01avch24d --nameByTopic --modeldir http://models.geo.admin.ch --models DM01AVCH24D
+
+
+# import 1st itf 
+java -jar /home/stefan/Apps/ili2pg-2.3.0/ili2pg.jar --import --dbhost localhost --dbport 5432 --dbdatabase rosebud2 --dbusr stefan --dbpwd ziegler12 --dbschema dm01avch24d --nameByTopic --modeldir http://models.geo.admin.ch --models DM01AVCH24D ch_254900.itf 
+
+
+# export 1st itf
+java -jar /home/stefan/Apps/ili2pg-2.3.0/ili2pg.jar --export --dbhost localhost --dbport 5432 --dbdatabase rosebud2 --dbusr stefan --dbpwd ziegler12 --dbschema dm01avch24d --nameByTopic --models DM01AVCH24D ch_254900_export.itf 
+
+
+# import 2nd itf 
+java -jar /home/stefan/Apps/ili2pg-2.3.0/ili2pg.jar --import --dbhost localhost --dbport 5432 --dbdatabase rosebud2 --dbusr stefan --dbpwd ziegler12 --dbschema dm01avch24d --nameByTopic --modeldir http://models.geo.admin.ch --models DM01AVCH24D ch_252400.itf 
+
+
+#export all
+java -jar /home/stefan/Apps/ili2pg-2.3.0/ili2pg.jar --export --dbhost localhost --dbport 5432 --dbdatabase rosebud2 --dbusr stefan --dbpwd ziegler12 --dbschema dm01avch24d --nameByTopic --models DM01AVCH24D export.itf 
+
+
+
+Beispiel 2:
+===========
