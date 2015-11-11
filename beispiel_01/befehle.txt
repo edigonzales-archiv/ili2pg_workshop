@@ -59,11 +59,23 @@ file://insert_into_control_points.sql
 # export MOpublic XTF
 java -jar /home/stefan/Apps/ili2pg-2.3.0/ili2pg.jar --export --dbhost localhost --dbport 5432 --dbdatabase rosebud2 --dbusr stefan --dbpwd ziegler12 --dbschema beispiel03_export --nameByTopic --createEnumColAsItfCode --models MOpublic03_ili2_v13 mopublic.xtf
 
+
 # pretty print mopublic.xtf
 xmllint --format -o mopublic_prettyprint.xtf mopublic.xtf
+
 
 # export MOpublic GML
 java -jar /home/stefan/Apps/ili2pg-2.3.0/ili2pg.jar --export --dbhost localhost --dbport 5432 --dbdatabase rosebud2 --dbusr stefan --dbpwd ziegler12 --dbschema beispiel03_export --nameByTopic --createEnumColAsItfCode --models MOpublic03_ili2_v13 mopublic.gml
 
+
 # pretty print mopublic.gml
 xmllint --format -o mopublic_prettyprint.gml mopublic.gml
+
+
+
+Beispiel 4:
+===========
+
+# schema import Buildings_V1
+java -jar /home/stefan/Apps/ili2pg-2.3.0/ili2pg.jar --schemaimport --dbhost localhost --dbport 5432 --dbdatabase rosebud2 --dbusr stefan --dbpwd ziegler12 --dbschema beispiel04 --nameByTopic --strokeArcs --createEnumTabs --modeldir . --models Buildings_V1
+
