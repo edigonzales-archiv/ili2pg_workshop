@@ -53,7 +53,7 @@ java -jar /home/stefan/Apps/ili2pg-2.3.0/ili2pg.jar --schemaimport --dbhost loca
 
 
 # insert into control_point
-file://insert_into_control_points.sql
+file://bsp03_insert_into_control_points.sql
 
 
 # export MOpublic XTF
@@ -79,3 +79,34 @@ Beispiel 4:
 # schema import Buildings_V1
 java -jar /home/stefan/Apps/ili2pg-2.3.0/ili2pg.jar --schemaimport --dbhost localhost --dbport 5432 --dbdatabase rosebud2 --dbusr stefan --dbpwd ziegler12 --dbschema beispiel04 --nameByTopic --strokeArcs --createEnumTabs --modeldir . --models Buildings_V1
 
+
+# insert into...
+file://bsp04_insert_into.sql
+
+
+# export gml
+java -jar /home/stefan/Apps/ili2pg-2.3.0/ili2pg.jar --export --dbhost localhost --dbport 5432 --dbdatabase rosebud2 --dbusr stefan --dbpwd ziegler12 --dbschema beispiel04 --nameByTopic --models Buildings_V1 buildings.gml
+
+
+# pretty print gml
+xmllint -format -o buildings.gml buildings.gml
+
+
+# export xtf
+java -jar /home/stefan/Apps/ili2pg-2.3.0/ili2pg.jar --export --dbhost localhost --dbport 5432 --dbdatabase rosebud2 --dbusr stefan --dbpwd ziegler12 --dbschema beispiel04 --nameByTopic --models Buildings_V1 buildings.xtf
+
+
+# pretty print xtf
+xmllint -format -o buildings.xtf buildings.xtf
+
+
+# create xsd
+java -jar /home/stefan/Apps/ili2pg-2.3.0/ili2c.jar -oXSD Buildings_V1.ili > Buildings_V1.xsd
+
+
+# create empty schema
+psql -U stefan -d rosebud2 -c "CREATE SCHEMA beispiel04_ogr AUTHORIZATION stefan;"
+
+
+# import gml with ogr2ogr
+ogr2ogr -f PostgreSQL PG:"dbname='rosebud2' host='localhost' port='5432' user='stefan' password='ziegler12'" buildings.gml,xsd=Buildings_V1.xsd -lco SCHEMA=beispiel04_ogr
