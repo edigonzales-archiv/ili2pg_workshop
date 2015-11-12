@@ -4,7 +4,7 @@
     <xsd:appinfo source="http://www.interlis.ch/ili2c/ili2cversion">4.5.17-20150910</xsd:appinfo>
     <xsd:appinfo source="http://www.interlis.ch/ili2c">
       <ili2c:model>Buildings_V1</ili2c:model>
-      <ili2c:modelVersion>2015-10-31</ili2c:modelVersion>
+      <ili2c:modelVersion>2015-11-03</ili2c:modelVersion>
       <ili2c:modelAt>mailto:stefan.ziegler@bd.so.ch</ili2c:modelAt>
       <ili2c:textMinimalCharset>ili23AnnexB</ili2c:textMinimalCharset>
     </xsd:appinfo>
@@ -83,6 +83,18 @@
         </xsd:simpleType>
       </xsd:element>
     </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType  name="Buildings_V1.Buildings.Administration">
+    <xsd:sequence>
+      <xsd:element name="Department_name">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:normalizedString">
+            <xsd:maxLength value="100"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+    </xsd:sequence>
+    <xsd:attribute name="TID" type="IliID" use="required"/>
   </xsd:complexType>
   <xsd:complexType  name="Buildings_V1.Buildings.Building">
     <xsd:sequence>
@@ -176,11 +188,11 @@
         </xsd:complexType>
       </xsd:element>
       <xsd:element name="Department" minOccurs="0">
-        <xsd:simpleType>
-          <xsd:restriction base="xsd:normalizedString">
-            <xsd:maxLength value="255"/>
-          </xsd:restriction>
-        </xsd:simpleType>
+        <xsd:complexType>
+          <xsd:attribute name="REF" type="IliID" use="required"/>
+          <xsd:attribute name="BID" type="IliID"/>
+          <xsd:attribute name="ORDER_POS" type="xsd:positiveInteger"/>
+        </xsd:complexType>
       </xsd:element>
     </xsd:sequence>
     <xsd:attribute name="TID" type="IliID" use="required"/>
@@ -243,6 +255,7 @@
   <xsd:complexType name="Buildings_V1.Buildings">
     <xsd:sequence>
       <xsd:choice minOccurs="0" maxOccurs="unbounded">
+        <xsd:element name="Buildings_V1.Buildings.Administration" type="Buildings_V1.Buildings.Administration"/>
         <xsd:element name="Buildings_V1.Buildings.AdministrativeBuilding" type="Buildings_V1.Buildings.AdministrativeBuilding"/>
         <xsd:element name="Buildings_V1.Buildings.ApartmentBuilding" type="Buildings_V1.Buildings.ApartmentBuilding"/>
       </xsd:choice>

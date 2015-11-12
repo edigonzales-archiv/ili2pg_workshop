@@ -1,16 +1,30 @@
 <GMLFeatureClassList>
   <SequentialLayers>true</SequentialLayers>
   <GMLFeatureClass>
+    <Name>Administration</Name>
+    <ElementPath>Administration</ElementPath>
+    <GeometryType>100</GeometryType>
+    <DatasetSpecificInfo>
+      <FeatureCount>2</FeatureCount>
+    </DatasetSpecificInfo>
+    <PropertyDefn>
+      <Name>Department_name</Name>
+      <ElementPath>Department_name</ElementPath>
+      <Type>String</Type>
+      <Width>23</Width>
+    </PropertyDefn>
+  </GMLFeatureClass>
+  <GMLFeatureClass>
     <Name>AdministrativeBuilding</Name>
     <ElementPath>AdministrativeBuilding</ElementPath>
     <GeometryType>3</GeometryType>
     <SRSName>EPSG:21781</SRSName>
     <DatasetSpecificInfo>
       <FeatureCount>1</FeatureCount>
-      <ExtentXMin>607875.93052</ExtentXMin>
-      <ExtentXMax>607928.46683</ExtentXMax>
-      <ExtentYMin>228247.11404</ExtentYMin>
-      <ExtentYMax>228305.94494</ExtentYMax>
+      <ExtentXMin>607875.00000</ExtentXMin>
+      <ExtentXMax>607928.00000</ExtentXMax>
+      <ExtentYMin>228247.00000</ExtentYMin>
+      <ExtentYMax>228305.00000</ExtentYMax>
     </DatasetSpecificInfo>
     <PropertyDefn>
       <Name>Storeys</Name>
@@ -38,12 +52,6 @@
       <ElementPath>Addresses|Address|RegBL_EGID</ElementPath>
       <Type>IntegerList</Type>
     </PropertyDefn>
-    <PropertyDefn>
-      <Name>Department</Name>
-      <ElementPath>Department</ElementPath>
-      <Type>String</Type>
-      <Width>23</Width>
-    </PropertyDefn>
   </GMLFeatureClass>
   <GMLFeatureClass>
     <Name>ApartmentBuilding</Name>
@@ -52,10 +60,10 @@
     <SRSName>EPSG:21781</SRSName>
     <DatasetSpecificInfo>
       <FeatureCount>2</FeatureCount>
-      <ExtentXMin>607938.40046</ExtentXMin>
-      <ExtentXMax>607958.09185</ExtentXMax>
-      <ExtentYMin>228269.59999</ExtentYMin>
-      <ExtentYMax>228312.36412</ExtentYMax>
+      <ExtentXMin>607938.00000</ExtentXMin>
+      <ExtentXMax>607958.00000</ExtentXMax>
+      <ExtentYMin>228269.00000</ExtentYMin>
+      <ExtentYMax>228312.00000</ExtentYMax>
     </DatasetSpecificInfo>
     <PropertyDefn>
       <Name>Storeys</Name>
@@ -69,11 +77,6 @@
       <Width>4</Width>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>Apartments</Name>
-      <ElementPath>Apartments</ElementPath>
-      <Type>Integer</Type>
-    </PropertyDefn>
-    <PropertyDefn>
       <Name>House_number</Name>
       <ElementPath>Addresses|Address|House_number</ElementPath>
       <Type>Integer</Type>
@@ -83,6 +86,11 @@
       <ElementPath>Addresses|Address|Street_name</ElementPath>
       <Type>String</Type>
       <Width>16</Width>
+    </PropertyDefn>
+    <PropertyDefn>
+      <Name>Apartments</Name>
+      <ElementPath>Apartments</ElementPath>
+      <Type>Integer</Type>
     </PropertyDefn>
   </GMLFeatureClass>
 </GMLFeatureClassList>
