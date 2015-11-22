@@ -1,0 +1,36 @@
+Beispiel 1:
+===========
+
+# check original itf with infogrips
+http://www.infogrips.ch/checkservice_login.html?&no_cache=1&L=1\%22
+
+
+# import itf 
+java -jar /home/stefan/Apps/ili2pg-2.3.0/ili2pg.jar --import --dbhost localhost --dbport 5432 --dbdatabase rosebud2 --dbusr stefan --dbpwd ziegler12 --dbschema beispiel01 --nameByTopic --modeldir http://www.catais.org/models --models DM01AVSO24 254900.itf 
+
+
+# export itf
+java -jar /home/stefan/Apps/ili2pg-2.3.0/ili2pg.jar --export --dbhost localhost --dbport 5432 --dbdatabase rosebud2 --dbusr stefan --dbpwd ziegler12 --dbschema beispiel01 --nameByTopic --models DM01AVSO24 254900_export.itf 
+
+
+# check export itf with infogrips / mocheckso
+http://www.infogrips.ch/checkservice_login.html?&no_cache=1&L=1\%22
+
+
+Beispiel 2:
+===========
+
+# import itf 
+java -jar /home/stefan/Apps/ili2pg-2.3.0/ili2pg.jar --import --dbhost localhost --dbport 5432 --dbdatabase rosebud2 --dbusr stefan --dbpwd ziegler12 --dbschema beispiel02 --nameByTopic --createEnumTabs --modeldir http://models.geo.admin.ch --models DM01AVCH24D ch_254900.itf 
+
+
+# explain relations and forms in QGIS
+bla bla bla
+
+
+# export itf 
+java -jar /home/stefan/Apps/ili2pg-2.3.0/ili2pg.jar --export --dbhost localhost --dbport 5432 --dbdatabase rosebud2 --dbusr stefan --dbpwd ziegler12 --dbschema beispiel02 --nameByTopic --models DM01AVCH24D ch_254900_proj_export.itf 
+
+
+# check export itf with infogrips / checkch
+http://www.cadastre.ch/internet/kataster/de/home/manuel-av/service/checkservice.html

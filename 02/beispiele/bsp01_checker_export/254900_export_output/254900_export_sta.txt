@@ -1,0 +1,66 @@
+******************************
+*                            *
+* MODULAR CHECKSERVICE       *
+*                            *
+* Version 1.1.9 07.09.2015   *
+*                            *
+* (c) infoGrips 1997-2014    *
+*                            *
+******************************
+
+*****************************************
+* License Information:                  *
+* Amt fuer Geoinformation Kt. Solothurn *
+* 4501 Solothurn                        *
+* ICS Kernel Version 2014.0             *
+*****************************************
+
+License file: E:\rics\user\ics\mocheckso\user\license\iltoolspro.lic
+
+**********************
+*                    *
+* CHECKCH            *
+*                    *
+* Ruleset 07.09.2015 *
+*                    *
+* (c) swisstopo      *
+*                    *
+**********************
+
+**************************
+*                        *
+* MOCHECKSO              *
+*                        *
+* Ruleset 08.09.2014     *
+*                        *
+* © Kanton Solothurn     *
+* Amt für Geoinformation *
+*                        *
+**************************
+
+job               : 1291005
+input file        : 254900_export.itf
+checkrules        : DM01AVSO24.xls (21.8.2014)
+control points    : FPDS swisstopo (21.11.2015)
+profile           : all
+date              : 22.11.2015
+time              : 11:25:02
+
+
+
+Error Statistic
+===============
+
+DM01AVSO24.Gemeindegrenzen.Gemeindegrenze_Geometrie
+     1 attribute Linienart has to be defined, errid=INT008
+
+completed with 1 error not tolerated
+
+
+Warning Statistic
+=================
+
+DM01AVSO24.Liegenschaften.Grundstueck
+     1 EGRIS_EGRID wurde nie erfasst, errid=CH085506
+
+completed with 1 warning not tolerated

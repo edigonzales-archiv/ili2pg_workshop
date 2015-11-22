@@ -1,0 +1,129 @@
+reading script e:\rics\user\ics\checkch\system\rics\dm01\pcheck\CheckPerimeter.cfg ...
+
+******************************
+*                            *
+* MODULAR CHECKSERVICE       *
+*                            *
+* Version 1.1.9 07.09.2015   *
+*                            *
+* (c) infoGrips 1997-2014    *
+*                            *
+******************************
+
+******************************
+* License Information:       *
+* swisstopo                  *
+* Wabern                     *
+* ICS Kernel Version 2014.0  *
+******************************
+
+License file: E:\rics\user\ics\checkch\user\license\iltoolspro.lic
+
+**********************
+*                    *
+* CHECKCH            *
+*                    *
+* Ruleset 07.09.2015 *
+*                    *
+* (c) swisstopo      *
+*                    *
+**********************
+
+job               : 1291014
+input file        : ch_254900_proj_export.itf
+date              : 22.11.2015
+time              : 16:59:27
+
+check: input,valid
+env  : prod
+srs  : lv03
+ref  : Liegenschaft
+
+
+   1000 objects processed
+   2000 objects processed
+   3000 objects processed
+   4000 objects processed
+   5000 objects processed
+   6000 objects processed
+   7000 objects processed
+   8000 objects processed
+   9000 objects processed
+   10000 objects processed
+   11000 objects processed
+   12000 objects processed
+   13000 objects processed
+   14000 objects processed
+   15000 objects processed
+   16000 objects processed
+   17000 objects processed
+   18000 objects processed
+   19000 objects processed
+   20000 objects processed
+   21000 objects processed
+   22000 objects processed
+   23000 objects processed
+   24000 objects processed
+   25000 objects processed
+   26000 objects processed
+******************************************************************************
+*** NOOP(I1) 
+******************************************************************************
+
+******************************************************************************
+*** SCAN_LIST(I2) NEIGHBORS_CHECK
+******************************************************************************
+==============================================================================
+Gemeindegrenze von Kammersrohr wird mit Gültig:Kammersrohr verglichen ...
+==============================================================================
+   27000 objects processed
+
+Die Gemeindegrenze ist fehlerfrei.
+==============================================================================
+Gemeindegrenze von Kammersrohr wird mit Gültig:Hubersdorf verglichen ...
+==============================================================================
+
+Die Gemeindegrenze ist fehlerfrei.
+==============================================================================
+Gemeindegrenze von Kammersrohr wird mit Gültig:Attiswil verglichen ...
+==============================================================================
+   28000 objects processed
+   29000 objects processed
+** WARNING ** CHECK(errid=92102) Der Grenzpunkt 612042.981/233703.440 kommt nur in Attiswil vor
+** WARNING ** CHECK(errid=92102) Der Grenzpunkt 612036.231/233741.740 kommt nur in Attiswil vor
+** WARNING ** CHECK(errid=92102) Der Grenzpunkt 612029.543/233781.732 kommt nur in Attiswil vor
+** WARNING ** CHECK(errid=92101) Der Grenzpunkt 612029.542/233781.732 kommt nur in Kammersrohr vor
+** WARNING ** CHECK(errid=92101) Der Grenzpunkt 612036.230/233741.740 kommt nur in Kammersrohr vor
+** WARNING ** CHECK(errid=92101) Der Grenzpunkt 612042.980/233703.440 kommt nur in Kammersrohr vor
+
+Die Gemeindegrenze ist fehlerfrei.
+==============================================================================
+Gemeindegrenze von Kammersrohr wird mit Gültig:Günsberg verglichen ...
+==============================================================================
+
+Die Gemeindegrenze ist fehlerfrei.
+
+3 von 3 Nachbargemeinden wurden verglichen.
+
+completed with 0 errors
+
+
+==============================================================================
+Perimetertest bei aufstossenden Gemeindegrenzen ...
+==============================================================================
+
+completed with 0 errors
+
+
+
+******************************************************************************
+*** INPUT/OUTPUT STATISTICS
+******************************************************************************
+
+process time
+============
+
+   start    : 22.11.2015 16:59:33
+   end      : 22.11.2015 16:59:37
+   duration : 00:00:04
+

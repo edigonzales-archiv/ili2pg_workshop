@@ -1,0 +1,43 @@
+!!-----------------------------------------------------------------
+!! Error Output iG/Check
+!!-----------------------------------------------------------------
+
+TRANSFER ERRORLOG14;
+
+MODEL ERRORLOG14
+
+   DOMAIN
+      LKoord = COORD2       0.000       0.000
+                      2850000.000 1310000.000;
+
+   TOPIC ERRORS =
+
+      TABLE Error =
+		
+         Topic: TEXT*40;
+         Table: TEXT*60;
+         Objid: OPTIONAL TEXT*20;
+         ErrorID: OPTIONAL TEXT*64;
+         Category: OPTIONAL TEXT*20; 
+         Description:  TEXT*255;
+         Description2:  OPTIONAL TEXT*255;
+         Line : OPTIONAL [0 .. 1000000000];
+         Number: OPTIONAL TEXT*20;
+         Geometry1 : OPTIONAL LKoord;
+         Geometry2 : OPTIONAL POLYLINE WITH (STRAIGHTS,ARCS) VERTEX LKoord;
+         Geometry3 : OPTIONAL SURFACE WITH (STRAIGHTS,ARCS) VERTEX LKoord;
+         Tolerated: OPTIONAL (GT,ET,UT);
+
+      NO IDENT
+      END Error;
+      
+   END ERRORS.
+
+END ERRORLOG14.
+
+FORMAT FREE;
+
+CODE
+   BLANK = DEFAULT, UNDEFINED = DEFAULT, CONTINUE = DEFAULT;
+   TID = I32;
+END.

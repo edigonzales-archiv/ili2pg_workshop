@@ -1,0 +1,2 @@
+Topicname,Tablename,Category,Tolerated,ErrorID,Description,Description2,Line,Y,X,ObjID,Num
+Gemeindegrenzen,Gemeindegrenze Geometrie,error,,INT008,attribute Linienart has to be defined,,24655,611205.283,234499.610,23549,
