@@ -98,15 +98,3 @@ java -jar /home/stefan/Apps/ili2pg-devel/ili2pg.jar --export --dbhost localhost 
 
 # pretty print xtf
 xmllint -format -o buildings.xtf buildings.xtf
-
-
-# create xsd
-java -jar /home/stefan/Apps/ili2pg-devel/ili2c.jar -oXSD Buildings_V1.ili > Buildings_V1.xsd
-
-
-# create empty schema
-psql -U stefan -d rosebud2 -c "CREATE SCHEMA beispiel04_ogr AUTHORIZATION stefan;"
-
-
-# import gml with ogr2ogr
-ogr2ogr -f PostgreSQL PG:"dbname='rosebud2' host='localhost' port='5432' user='stefan' password='ziegler12'" buildings.gml,xsd=Buildings_V1.xsd -lco SCHEMA=beispiel04_ogr
