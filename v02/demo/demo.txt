@@ -98,3 +98,34 @@ java -jar /home/stefan/Apps/ili2pg-devel/ili2pg.jar --export --dbhost localhost 
 
 # pretty print xtf
 xmllint -format -o buildings.xtf buildings.xtf
+
+
+Beispiel 5:
+===========
+
+# import itf
+java -jar /home/stefan/Apps/ili2pg-devel/ili2pg.jar --import --dbhost localhost --dbport 5432 --dbdatabase rosebud2 --dbusr stefan --dbpwd ziegler12 --dbschema beispiel05 --nameByTopic --createEnumColAsItfCode --modeldir http://models.geo.admin.ch --models DM01AVCH24D ch_254900.itf
+
+
+# schema import mopublic v1.3
+java -jar /home/stefan/Apps/ili2pg-devel/ili2pg.jar --schemaimport --dbhost localhost --dbport 5432 --dbdatabase rosebud2 --dbusr stefan --dbpwd ziegler12 --dbschema beispiel05_export --nameByTopic --modeldir http://models.geo.admin.ch --models MOpublic03_ili2_v13
+
+
+# schema import mopublic v1.3
+java -jar /home/stefan/Apps/ili2pg-devel/ili2pg.jar --schemaimport --dbhost localhost --dbport 5432 --dbdatabase rosebud2 --dbusr stefan --dbpwd ziegler12 --dbschema beispiel03_export --nameByTopic --modeldir http://models.geo.admin.ch --models MOpublic03_ili2_v13
+
+
+# prepare empty geopackage
+java -jar /home/stefan/Apps/ili2gpkg-devel/ili2gpkg.jar --schemaimport --nameByTopic --modeldir http://models.geo.admin.ch --models MOpublic03_ili2_v13 --dbfile mopublic.gpkg
+
+
+# shapefile test with sql
+ogr2ogr -f "ESRI Shapefile" mopublic_control_points.shp PG:"dbname='rosebud2' host='localhost' port='5432' user='stefan' password='ziegler12'" -sql mopublic_control_points_shp.sql
+
+
+# insert into geopackage
+/usr/local/gdal_master/bin/ogr2ogr -f GPKG mopublic.gpkg PG:"dbname='rosebud2' host='localhost' port='5432' user='stefan' password='ziegler12'" -append -sql @bsp05_mopublic_control_points_gpkg.sql -nln control_points_control_point
+
+
+# export xtf
+java -jar /home/stefan/Apps/ili2gpkg-devel/ili2gpkg.jar --export --nameByTopic --modeldir http://models.geo.admin.ch --models MOpublic03_ili2_v13 --dbfile mopublic.gpkg  mopublic_gpkg.xtf
