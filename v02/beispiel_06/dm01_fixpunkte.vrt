@@ -1,0 +1,11 @@
+<OGRVRTDataSource>
+    <OGRVRTLayer name="fixpunktekategorie3_lfp3">
+        <SrcDataSource relativeToVRT="1">fixpunktekategorie3_lfp3.shp</SrcDataSource>
+        <GeometryField name="the_geom" />        
+    </OGRVRTLayer>
+    <OGRVRTLayer name="fixpunktekategorie3_lfp3nachfuehrung">
+        <SrcDataSource relativeToVRT="1">fixpunktekategorie3_lfp3nachfuehrung.shp</SrcDataSource>
+        <GeometryField name="the_geom" />        
+    </OGRVRTLayer>
+    
+</OGRVRTDataSource>
