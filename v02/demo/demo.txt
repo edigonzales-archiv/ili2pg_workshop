@@ -107,16 +107,12 @@ Beispiel 5:
 java -jar /home/stefan/Apps/ili2pg-devel/ili2pg.jar --import --dbhost localhost --dbport 5432 --dbdatabase rosebud2 --dbusr stefan --dbpwd ziegler12 --dbschema beispiel05 --nameByTopic --createEnumColAsItfCode --modeldir http://models.geo.admin.ch --models DM01AVCH24D ch_254900.itf
 
 
-# schema import mopublic v1.3
-java -jar /home/stefan/Apps/ili2pg-devel/ili2pg.jar --schemaimport --dbhost localhost --dbport 5432 --dbdatabase rosebud2 --dbusr stefan --dbpwd ziegler12 --dbschema beispiel05_export --nameByTopic --modeldir http://models.geo.admin.ch --models MOpublic03_ili2_v13
-
-
-# schema import mopublic v1.3
-java -jar /home/stefan/Apps/ili2pg-devel/ili2pg.jar --schemaimport --dbhost localhost --dbport 5432 --dbdatabase rosebud2 --dbusr stefan --dbpwd ziegler12 --dbschema beispiel03_export --nameByTopic --modeldir http://models.geo.admin.ch --models MOpublic03_ili2_v13
-
-
 # prepare empty geopackage
 java -jar /home/stefan/Apps/ili2gpkg-devel/ili2gpkg.jar --schemaimport --nameByTopic --modeldir http://models.geo.admin.ch --models MOpublic03_ili2_v13 --dbfile mopublic.gpkg
+
+
+# SQL query in text file
+file://bsp05_mopublic_control_points_shp.sql
 
 
 # shapefile test with sql
@@ -129,3 +125,27 @@ ogr2ogr -f "ESRI Shapefile" mopublic_control_points.shp PG:"dbname='rosebud2' ho
 
 # export xtf
 java -jar /home/stefan/Apps/ili2gpkg-devel/ili2gpkg.jar --export --nameByTopic --modeldir http://models.geo.admin.ch --models MOpublic03_ili2_v13 --dbfile mopublic.gpkg  mopublic_gpkg.xtf
+
+
+
+Beispiel 6:
+===========
+
+# ogr vrt
+file://bsp06_dm01_fixpunkte.vrt
+
+
+# prepare empty geopackage
+java -jar /home/stefan/Apps/ili2gpkg-devel/ili2gpkg.jar --schemaimport --nameByTopic --modeldir http://models.geo.admin.ch --models MOpublic03_ili2_v13 --dbfile mopublic_shp.gpkg
+
+
+# SQL query in text file
+file://bsp06_mopublic_control_points_gpkg.sql
+
+
+# insert into geopackage
+/usr/local/gdal_master/bin/ogr2ogr -f GPKG -dialect SQLITE -sql @bsp06_mopublic_control_points_gpkg.sql -append -nln control_points_control_point mopublic_shp.gpkg bsp06_dm01_fixpunkte.vrt
+
+
+# export xtf
+java -jar /home/stefan/Apps/ili2gpkg-devel/ili2gpkg.jar --export --nameByTopic --modeldir http://models.geo.admin.ch --models MOpublic03_ili2_v13 --dbfile mopublic_shp.gpkg  mopublic_shp_gpkg.xtf

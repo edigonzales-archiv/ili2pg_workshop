@@ -4,4 +4,17 @@ ogrinfo -dialect SQLITE -sql "SELECT a.t_id, a.the_geom, b.beschreibu FROM fixpu
 ogr2ogr -f GPKG -dialect INDIRECT_SQLITE -sql "SELECT a.t_id, a.the_geom, b.beschreibu FROM fixpunktekategorie3_lfp3, fixpunktekategorie3_lfp3nachfuehrung WHERE b.t_id = a.entstehung" mopublic.gpkg dm01_fixpunkte.vrt
 
 
-ogr2ogr -dialect INDIRECT_SQLITE -sql "SELECT a.t_id, a.the_geom, b.beschreibu FROM fixpunktekategorie3_lfp3 as a, fixpunktekategorie3_lfp3nachfuehrung as b WHERE b.t_id = a.entstehung" fubar.shp dm01_fixpunkte.vrt
+ogr2ogr -dialect INDIRECT_SQLITE -sql @umbau.sql mopublic.gpgk dm01_fixpunkte.vrt
+
+
+/usr/local/gdal_master/bin/ogr2ogr -f GPKG -sql @umbau.sql mopublic.gpkg dm01_fixpunkte.vrt
+
+
+/usr/local/gdal_master/bin/ogr2ogr -f GPKG -sql "SELECT a.t_id, a.the_geom, b.beschreibu FROM fixpunktekategorie3_lfp3 as a, fixpunktekategorie3_lfp3nachfuehrung b WHERE b.t_id = a.entstehung" mopublic.gpkg dm01_fixpunkte.vrt
+
+/usr/local/gdal_master/bin/ogr2ogr -f GPKG -dialect SQLITE -sql "SELECT a.t_id, a.the_geom, b.beschreibu FROM fixpunktekategorie3_lfp3 as a, fixpunktekategorie3_lfp3nachfuehrung b WHERE b.t_id = a.entstehung" -nln control_points_control_point mopublic.gpkg dm01_fixpunkte.vrt
+
+/usr/local/gdal_master/bin/ogr2ogr -f GPKG -dialect SQLITE -sql @umbau.sql -nln control_points_control_point mopublic.gpkg dm01_fixpunkte.vrt
+
+
+SELECT a.t_id, a.the_geom, b.beschreibu FROM fixpunktekategorie3_lfp3 as a, fixpunktekategorie3_lfp3nachfuehrung a WHERE b.t_id = a.entstehung
