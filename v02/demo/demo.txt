@@ -51,13 +51,18 @@ java -jar /home/stefan/Apps/ili2pg-devel/ili2pg.jar --import --dbhost localhost 
 # schema import mopublic v1.3
 java -jar /home/stefan/Apps/ili2pg-devel/ili2pg.jar --schemaimport --dbhost localhost --dbport 5432 --dbdatabase rosebud2 --dbusr stefan --dbpwd ziegler12 --dbschema beispiel03_export --nameByTopic --modeldir http://models.geo.admin.ch --models MOpublic03_ili2_v13
 
+#java -jar /home/stefan/Apps/ili2pg-devel/ili2pg.jar --schemaimport --dbhost localhost --dbport 5432 --dbdatabase rosebud2 --dbusr stefan --dbpwd ziegler12 --dbschema beispiel03_export --nameByTopic --modeldir http://models.geo.admin.ch --models MOpublic95_ili2_v13 --defaultSrsAuth EPSG --defaultSrsCode 2056
+
 
 # insert into control_point
 file://bsp03_insert_into_control_points.sql
+file://bsp03_insert_into_control_points_lv95.sql
 
 
 # export MOpublic XTF
-java -jar /home/stefan/Apps/ili2pg-devel/ili2pg.jar --export --dbhost localhost --dbport 5432 --dbdatabase rosebud2 --dbusr stefan --dbpwd ziegler12 --dbschema beispiel03_export --nameByTopic --createEnumColAsItfCode --models MOpublic03_ili2_v13 mopublic.xtf
+#java -jar /home/stefan/Apps/ili2pg-devel/ili2pg.jar --export --dbhost localhost --dbport 5432 --dbdatabase rosebud2 --dbusr stefan --dbpwd ziegler12 --dbschema beispiel03_export --nameByTopic --createEnumColAsItfCode --models MOpublic03_ili2_v13 mopublic.xtf
+
+java -jar /home/stefan/Apps/ili2pg-devel/ili2pg.jar --export --dbhost localhost --dbport 5432 --dbdatabase rosebud2 --dbusr stefan --dbpwd ziegler12 --dbschema beispiel03_export --nameByTopic --createEnumColAsItfCode --models MOpublic95_ili2_v13 mopublic.xtf
 
 
 # pretty print mopublic.xtf
