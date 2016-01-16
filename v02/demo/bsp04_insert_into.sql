@@ -18,10 +18,10 @@ INSERT INTO beispiel04.buildings_apartmentbuilding (t_id, apartments, storeys, r
 VALUES (2, 6, 4, 'shed', ST_PolygonFromText('POLYGON((607938 228311, 607941 228299, 607950 228302, 607949 228312, 607938 228311))', 21781));
 
 
-INSERT INTO beispiel04.buildings_address (t_id, t_seq, house_number, street_name, regbl_egid, buildings_v1buildings_building_addresses) 
+INSERT INTO beispiel04.buildings_address (t_id, t_seq, house_number, street_name, regbl_egid, buildings_v1buildings_apartmentbuilding_addresses) 
 VALUES (101, 0, '24', 'Schänzlistrasse', NULL, 1);
 
-INSERT INTO beispiel04.buildings_address (t_id, t_seq, house_number, street_name, regbl_egid, buildings_v1buildings_building_addresses) 
+INSERT INTO beispiel04.buildings_address (t_id, t_seq, house_number, street_name, regbl_egid, buildings_v1buildings_apartmentbuilding_addresses) 
 VALUES (102, 0, '26', 'Schänzlistrasse', NULL, 2);
 
 

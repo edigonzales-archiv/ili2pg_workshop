@@ -1,26 +1,26 @@
 Beispiel 1:
 ===========
 
-java -jar /home/stefan/Apps/ili2pg-devel/ili2pg.jar --help
+java -jar /home/stefan/Apps/ili2pg-2.5.1/ili2pg.jar --help
 
 # schema import
-java -jar /home/stefan/Apps/ili2pg-devel/ili2pg.jar --schemaimport --dbhost localhost --dbport 5432 --dbdatabase rosebud2 --dbusr stefan --dbpwd ziegler12 --dbschema beispiel01 --nameByTopic --modeldir http://models.geo.admin.ch --models DM01AVCH24D
+java -jar /home/stefan/Apps/ili2pg-2.5.1/ili2pg.jar --schemaimport --dbhost localhost --dbport 5432 --dbdatabase rosebud2 --dbusr stefan --dbpwd ziegler12 --dbschema beispiel01 --nameByTopic --modeldir http://models.geo.admin.ch --models DM01AVCH24D
 
 
 # import 1st itf
-java -jar /home/stefan/Apps/ili2pg-devel/ili2pg.jar --import --dbhost localhost --dbport 5432 --dbdatabase rosebud2 --dbusr stefan --dbpwd ziegler12 --dbschema beispiel01 --nameByTopic --modeldir http://models.geo.admin.ch --models DM01AVCH24D ch_254900.itf
+java -jar /home/stefan/Apps/ili2pg-2.5.1/ili2pg.jar --import --dbhost localhost --dbport 5432 --dbdatabase rosebud2 --dbusr stefan --dbpwd ziegler12 --dbschema beispiel01 --nameByTopic --modeldir http://models.geo.admin.ch --models DM01AVCH24D ch_254900.itf
 
 
 # export 1st itf
-java -jar /home/stefan/Apps/ili2pg-devel/ili2pg.jar --export --dbhost localhost --dbport 5432 --dbdatabase rosebud2 --dbusr stefan --dbpwd ziegler12 --dbschema beispiel01 --nameByTopic --models DM01AVCH24D ch_254900_export.itf
+java -jar /home/stefan/Apps/ili2pg-2.5.1/ili2pg.jar --export --dbhost localhost --dbport 5432 --dbdatabase rosebud2 --dbusr stefan --dbpwd ziegler12 --dbschema beispiel01 --nameByTopic --models DM01AVCH24D ch_254900_export.itf
 
 
 # import 2nd itf
-java -jar /home/stefan/Apps/ili2pg-devel/ili2pg.jar --import --dbhost localhost --dbport 5432 --dbdatabase rosebud2 --dbusr stefan --dbpwd ziegler12 --dbschema beispiel01 --nameByTopic --modeldir http://models.geo.admin.ch --models DM01AVCH24D ch_252400.itf
+java -jar /home/stefan/Apps/ili2pg-2.5.1/ili2pg.jar --import --dbhost localhost --dbport 5432 --dbdatabase rosebud2 --dbusr stefan --dbpwd ziegler12 --dbschema beispiel01 --nameByTopic --modeldir http://models.geo.admin.ch --models DM01AVCH24D ch_252400.itf
 
 
 #export all
-java -jar /home/stefan/Apps/ili2pg-devel/ili2pg.jar --export --dbhost localhost --dbport 5432 --dbdatabase rosebud2 --dbusr stefan --dbpwd ziegler12 --dbschema beispiel01 --nameByTopic --models DM01AVCH24D export.itf
+java -jar /home/stefan/Apps/ili2pg-2.5.1/ili2pg.jar --export --dbhost localhost --dbport 5432 --dbdatabase rosebud2 --dbusr stefan --dbpwd ziegler12 --dbschema beispiel01 --nameByTopic --models DM01AVCH24D export.itf
 
 
 
@@ -28,7 +28,7 @@ Beispiel 2:
 ===========
 
 # import itf
-java -jar /home/stefan/Apps/ili2pg-devel/ili2pg.jar --import --dbhost localhost --dbport 5432 --dbdatabase rosebud2 --dbusr stefan --dbpwd ziegler12 --dbschema beispiel02 --nameByTopic --modeldir http://models.geo.admin.ch --models DM01AVCH24D ch_254900.itf
+java -jar /home/stefan/Apps/ili2pg-2.5.1/ili2pg.jar --import --dbhost localhost --dbport 5432 --dbdatabase rosebud2 --dbusr stefan --dbpwd ziegler12 --dbschema beispiel02 --nameByTopic --modeldir http://models.geo.admin.ch --models DM01AVCH24D ch_254900.itf
 
 
 # create view
@@ -45,13 +45,11 @@ Beispiel 3:
 ===========
 
 # import itf
-java -jar /home/stefan/Apps/ili2pg-devel/ili2pg.jar --import --dbhost localhost --dbport 5432 --dbdatabase rosebud2 --dbusr stefan --dbpwd ziegler12 --dbschema beispiel03 --nameByTopic --createEnumColAsItfCode --modeldir http://models.geo.admin.ch --models DM01AVCH24D ch_254900.itf
+java -jar /home/stefan/Apps/ili2pg-2.3.0/ili2pg.jar --import --dbhost localhost --dbport 5432 --dbdatabase rosebud2 --dbusr stefan --dbpwd ziegler12 --dbschema beispiel03 --nameByTopic --createEnumColAsItfCode --modeldir http://models.geo.admin.ch --models DM01AVCH24D ch_254900.itf
 
 
-# schema import mopublic v1.3
-java -jar /home/stefan/Apps/ili2pg-devel/ili2pg.jar --schemaimport --dbhost localhost --dbport 5432 --dbdatabase rosebud2 --dbusr stefan --dbpwd ziegler12 --dbschema beispiel03_export --nameByTopic --modeldir http://models.geo.admin.ch --models MOpublic03_ili2_v13
-
-#java -jar /home/stefan/Apps/ili2pg-devel/ili2pg.jar --schemaimport --dbhost localhost --dbport 5432 --dbdatabase rosebud2 --dbusr stefan --dbpwd ziegler12 --dbschema beispiel03_export --nameByTopic --modeldir http://models.geo.admin.ch --models MOpublic95_ili2_v13 --defaultSrsAuth EPSG --defaultSrsCode 2056
+# schema import mopublic v1.3 (LV95)
+java -jar /home/stefan/Apps/ili2pg-2.3.0/ili2pg.jar --schemaimport --dbhost localhost --dbport 5432 --dbdatabase rosebud2 --dbusr stefan --dbpwd ziegler12 --dbschema beispiel03_export --nameByTopic --defaultSrsAuth EPSG --defaultSrsCode 2056 --modeldir http://models.geo.admin.ch --models MOpublic95_ili2_v13 
 
 
 # insert into control_point
@@ -59,18 +57,16 @@ file://bsp03_insert_into_control_points.sql
 file://bsp03_insert_into_control_points_lv95.sql
 
 
-# export MOpublic XTF
-#java -jar /home/stefan/Apps/ili2pg-devel/ili2pg.jar --export --dbhost localhost --dbport 5432 --dbdatabase rosebud2 --dbusr stefan --dbpwd ziegler12 --dbschema beispiel03_export --nameByTopic --createEnumColAsItfCode --models MOpublic03_ili2_v13 mopublic.xtf
-
-java -jar /home/stefan/Apps/ili2pg-devel/ili2pg.jar --export --dbhost localhost --dbport 5432 --dbdatabase rosebud2 --dbusr stefan --dbpwd ziegler12 --dbschema beispiel03_export --nameByTopic --createEnumColAsItfCode --models MOpublic95_ili2_v13 mopublic.xtf
+# export MOpublic XTF (LV95)
+java -jar /home/stefan/Apps/ili2pg-2.3.0/ili2pg.jar --export --dbhost localhost --dbport 5432 --dbdatabase rosebud2 --dbusr stefan --dbpwd ziegler12 --dbschema beispiel03_export --nameByTopic --createEnumColAsItfCode --models MOpublic95_ili2_v13 mopublic.xtf
 
 
 # pretty print mopublic.xtf
 xmllint --format -o mopublic_prettyprint.xtf mopublic.xtf
 
 
-# export MOpublic GML
-java -jar /home/stefan/Apps/ili2pg-devel/ili2pg.jar --export --dbhost localhost --dbport 5432 --dbdatabase rosebud2 --dbusr stefan --dbpwd ziegler12 --dbschema beispiel03_export --nameByTopic --createEnumColAsItfCode --models MOpublic03_ili2_v13 mopublic.gml
+# export MOpublic GML (LV95)
+java -jar /home/stefan/Apps/ili2pg-2.3.0/ili2pg.jar --export --dbhost localhost --dbport 5432 --dbdatabase rosebud2 --dbusr stefan --dbpwd ziegler12 --dbschema beispiel03_export --nameByTopic --createEnumColAsItfCode --models MOpublic95_ili2_v13 mopublic.gml
 
 
 # pretty print mopublic.gml
@@ -121,7 +117,7 @@ file://bsp05_mopublic_control_points_shp.sql
 
 
 # shapefile test with sql
-ogr2ogr -f "ESRI Shapefile" mopublic_control_points.shp PG:"dbname='rosebud2' host='localhost' port='5432' user='stefan' password='ziegler12'" -sql mopublic_control_points_shp.sql
+/usr/local/gdal_master/bin/ogr2ogr -f "ESRI Shapefile" mopublic_control_points.shp PG:"dbname='rosebud2' host='localhost' port='5432' user='stefan' password='ziegler12'" -sql @bsp05_mopublic_control_points_shp.sql
 
 
 # insert into geopackage

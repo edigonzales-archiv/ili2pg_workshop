@@ -27,8 +27,6 @@ FROM beispiel05.fixpunktekategorie2_lfp2 as a,
 WHERE a.entstehung = b.t_id
 )
 
---INSERT INTO control_points_control_point (T_Id, T_Ili_id, Category, IdentND, anumber, Plan_accuracy, Geom_alt,
---       Alt_accuracy, Mark, State_of, FOSNr, Geometry)
 SELECT t_id, t_id as t_ili_tid, kategorie as category, nbident as identnd, nummer as anumber,
        lagegen as plan_accuracy, hoehegeom as geom_alt, hoehegen as alt_accuracy, punktzeichen as mark,
        stand_am::timestamp without time zone as state_of,

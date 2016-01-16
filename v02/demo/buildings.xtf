@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TRANSFER xmlns="http://www.interlis.ch/INTERLIS2.3">
+  <HEADERSECTION SENDER="ili2pg-2.5.1-20160109" VERSION="2.3">
+    <MODELS>
+      <MODEL NAME="Buildings_V1" VERSION="2015-11-03" URI="mailto:stefan.ziegler@bd.so.ch"/>
+    </MODELS>
+  </HEADERSECTION>
+  <DATASECTION>
+    <Buildings_V1.Buildings BID="Buildings_V1.Buildings">
+      <Buildings_V1.Buildings.Administration TID="1001">
+        <Department_name>Amt für Geoinformation</Department_name>
+      </Buildings_V1.Buildings.Administration>
+      <Buildings_V1.Buildings.Administration TID="1002">
+        <Department_name>Amt für Umwelt</Department_name>
+      </Buildings_V1.Buildings.Administration>
+      <Buildings_V1.Buildings.AdministrativeBuilding TID="3">
+        <Storeys>3</Storeys>
+        <Roof>terrace</Roof>
+        <Addresses>
+          <Buildings_V1.Buildings.Address>
+            <House_number>4</House_number>
+            <Street_name>Rötistrasse</Street_name>
+            <RegBL_EGID>2122818</RegBL_EGID>
+          </Buildings_V1.Buildings.Address>
+          <Buildings_V1.Buildings.Address>
+            <House_number>6</House_number>
+            <Street_name>Rötistrasse</Street_name>
+            <RegBL_EGID>9023822</RegBL_EGID>
+          </Buildings_V1.Buildings.Address>
+        </Addresses>
+        <Geometry>
+          <SURFACE>
+            <BOUNDARY>
+              <POLYLINE>
+                <COORD>
+                  <C1>607875.0</C1>
+                  <C2>228298.0</C2>
+                </COORD>
+                <COORD>
+                  <C1>607885.0</C1>
+                  <C2>228247.0</C2>
+                </COORD>
+                <COORD>
+                  <C1>607928.0</C1>
+                  <C2>228254.0</C2>
+                </COORD>
+                <COORD>
+                  <C1>607918.0</C1>
+                  <C2>228305.0</C2>
+                </COORD>
+                <COORD>
+                  <C1>607875.0</C1>
+                  <C2>228298.0</C2>
+                </COORD>
+              </POLYLINE>
+            </BOUNDARY>
+          </SURFACE>
+        </Geometry>
+        <Department REF="1001"/>
+      </Buildings_V1.Buildings.AdministrativeBuilding>
+      <Buildings_V1.Buildings.ApartmentBuilding TID="1">
+        <Storeys>5</Storeys>
+        <Roof>shed</Roof>
+        <Addresses>
+          <Buildings_V1.Buildings.Address>
+            <House_number>24</House_number>
+            <Street_name>Schänzlistrasse</Street_name>
+          </Buildings_V1.Buildings.Address>
+        </Addresses>
+        <Geometry>
+          <SURFACE>
+            <BOUNDARY>
+              <POLYLINE>
+                <COORD>
+                  <C1>607946.0</C1>
+                  <C2>228269.0</C2>
+                </COORD>
+                <COORD>
+                  <C1>607945.0</C1>
+                  <C2>228280.0</C2>
+                </COORD>
+                <COORD>
+                  <C1>607956.0</C1>
+                  <C2>228282.0</C2>
+                </COORD>
+                <COORD>
+                  <C1>607958.0</C1>
+                  <C2>228272.0</C2>
+                </COORD>
+                <COORD>
+                  <C1>607946.0</C1>
+                  <C2>228269.0</C2>
+                </COORD>
+              </POLYLINE>
+            </BOUNDARY>
+          </SURFACE>
+        </Geometry>
+        <Apartments>10</Apartments>
+      </Buildings_V1.Buildings.ApartmentBuilding>
+      <Buildings_V1.Buildings.ApartmentBuilding TID="2">
+        <Storeys>4</Storeys>
+        <Roof>shed</Roof>
+        <Addresses>
+          <Buildings_V1.Buildings.Address>
+            <House_number>26</House_number>
+            <Street_name>Schänzlistrasse</Street_name>
+          </Buildings_V1.Buildings.Address>
+        </Addresses>
+        <Geometry>
+          <SURFACE>
+            <BOUNDARY>
+              <POLYLINE>
+                <COORD>
+                  <C1>607938.0</C1>
+                  <C2>228311.0</C2>
+                </COORD>
+                <COORD>
+                  <C1>607941.0</C1>
+                  <C2>228299.0</C2>
+                </COORD>
+                <COORD>
+                  <C1>607950.0</C1>
+                  <C2>228302.0</C2>
+                </COORD>
+                <COORD>
+                  <C1>607949.0</C1>
+                  <C2>228312.0</C2>
+                </COORD>
+                <COORD>
+                  <C1>607938.0</C1>
+                  <C2>228311.0</C2>
+                </COORD>
+              </POLYLINE>
+            </BOUNDARY>
+          </SURFACE>
+        </Geometry>
+        <Apartments>6</Apartments>
+      </Buildings_V1.Buildings.ApartmentBuilding>
+    </Buildings_V1.Buildings>
+  </DATASECTION>
+</TRANSFER>
