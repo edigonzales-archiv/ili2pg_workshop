@@ -8,8 +8,8 @@ SELECT a.t_id, 4 as kategorie, a.nbident, nummer, geometrie, lagegen, hoehegeom,
     WHEN b.gueltigereintrag IS NULL THEN b.datum1
     ELSE b.gueltigereintrag
   END AS stand_am
-FROM beispiel05.fixpunktekategorie3_lfp3 as a,
-     beispiel05.fixpunktekategorie3_lfp3nachfuehrung as b
+FROM beispiel05.fixpunktekatgrie3_lfp3 as a,
+     beispiel05.fixpunktekatgrie3_lfp3nachfuehrung as b
 WHERE a.entstehung = b.t_id
 ),
 lfp2 AS (
@@ -22,8 +22,8 @@ SELECT a.t_id, 2 as kategorie, a.nbident, nummer, geometrie, lagegen, hoehegeom,
     WHEN b.gueltigereintrag IS NULL THEN b.datum1
     ELSE b.gueltigereintrag
   END AS stand_am
-FROM beispiel05.fixpunktekategorie2_lfp2 as a,
-     beispiel05.fixpunktekategorie2_lfp2nachfuehrung as b
+FROM beispiel05.fixpunktekatgrie2_lfp2 as a,
+     beispiel05.fixpunktekatgrie2_lfp2nachfuehrung as b
 WHERE a.entstehung = b.t_id
 )
 

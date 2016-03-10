@@ -1,0 +1,152 @@
+Beispiel 1:
+===========
+
+java -jar /home/stefan/Apps/ili2pg-3.0.2/ili2pg.jar --help
+
+# schema import
+java -jar /home/stefan/Apps/ili2pg-3.0.2/ili2pg.jar --schemaimport --dbhost localhost --dbport 5432 --dbdatabase rosebud2 --dbusr stefan --dbpwd ziegler12 --dbschema beispiel01 --nameByTopic --modeldir http://models.geo.admin.ch --models DM01AVCH24D
+
+
+# import 1st itf
+java -jar /home/stefan/Apps/ili2pg-3.0.2/ili2pg.jar --import --dbhost localhost --dbport 5432 --dbdatabase rosebud2 --dbusr stefan --dbpwd ziegler12 --dbschema beispiel01 --nameByTopic --modeldir http://models.geo.admin.ch --models DM01AVCH24D ch_254900.itf
+
+
+# export 1st itf
+java -jar /home/stefan/Apps/ili2pg-3.0.2/ili2pg.jar --export --dbhost localhost --dbport 5432 --dbdatabase rosebud2 --dbusr stefan --dbpwd ziegler12 --dbschema beispiel01 --nameByTopic --models DM01AVCH24D ch_254900_export.itf
+
+
+# import 2nd itf
+# ohne --models
+java -jar /home/stefan/Apps/ili2pg-3.0.2/ili2pg.jar --import --dbhost localhost --dbport 5432 --dbdatabase rosebud2 --dbusr stefan --dbpwd ziegler12 --dbschema beispiel01 --nameByTopic  --models DM01AVCH24D ch_252400.itf
+
+#export all
+java -jar /home/stefan/Apps/ili2pg-3.0.2/ili2pg.jar --export --dbhost localhost --dbport 5432 --dbdatabase rosebud2 --dbusr stefan --dbpwd ziegler12 --dbschema beispiel01 --nameByTopic --models DM01AVCH24D export.itf
+
+
+
+Beispiel 2:
+===========
+
+# import itf
+java -jar /home/stefan/Apps/ili2pg-3.0.2/ili2pg.jar --import --dbhost localhost --dbport 5432 --dbdatabase rosebud2 --dbusr stefan --dbpwd ziegler12 --dbschema beispiel02 --nameByTopic --modeldir http://models.geo.admin.ch --models DM01AVCH24D ch_254900.itf
+
+
+# create view
+CREATE OR REPLACE VIEW beispiel02.v_liegenschaften_liegenschaft AS
+
+SELECT ls.*, gs.nummer
+FROM beispiel02.liegenschaften_grundstueck AS gs,
+     beispiel02.liegenschaften_liegenschaft AS ls
+WHERE gs.t_id = ls.liegenschaft_von;
+
+
+
+Beispiel 3:
+===========
+
+# import itf
+java -jar /home/stefan/Apps/ili2pg-3.0.2/ili2pg.jar --import --dbhost localhost --dbport 5432 --dbdatabase rosebud2 --dbusr stefan --dbpwd ziegler12 --dbschema beispiel03 --nameByTopic --createEnumColAsItfCode --modeldir http://models.geo.admin.ch --models DM01AVCH24D ch_254900.itf
+
+
+# schema import mopublic v1.3 (LV95)
+java -jar /home/stefan/Apps/ili2pg-3.0.2/ili2pg.jar --schemaimport --dbhost localhost --dbport 5432 --dbdatabase rosebud2 --dbusr stefan --dbpwd ziegler12 --dbschema beispiel03_export --nameByTopic --defaultSrsAuth EPSG --defaultSrsCode 2056 --modeldir http://models.geo.admin.ch --models MOpublic95_ili2_v13 
+
+
+# insert into control_point
+file://bsp03_insert_into_control_points.sql
+file://bsp03_insert_into_control_points_lv95.sql
+
+
+# export MOpublic XTF (LV95)
+java -jar /home/stefan/Apps/ili2pg-3.0.2/ili2pg.jar --export --dbhost localhost --dbport 5432 --dbdatabase rosebud2 --dbusr stefan --dbpwd ziegler12 --dbschema beispiel03_export --nameByTopic --createEnumColAsItfCode --models MOpublic95_ili2_v13 mopublic.xtf
+
+
+# pretty print mopublic.xtf
+xmllint --format -o mopublic_prettyprint.xtf mopublic.xtf
+
+
+# export MOpublic GML (LV95)
+java -jar /home/stefan/Apps/ili2pg-3.0.2/ili2pg.jar --export --dbhost localhost --dbport 5432 --dbdatabase rosebud2 --dbusr stefan --dbpwd ziegler12 --dbschema beispiel03_export --nameByTopic --createEnumColAsItfCode --models MOpublic95_ili2_v13 mopublic.gml
+
+
+# pretty print mopublic.gml
+xmllint --format -o mopublic_prettyprint.gml mopublic.gml
+
+
+
+Beispiel 4:
+===========
+
+# schema import Buildings_V1
+java -jar /home/stefan/Apps/ili2pg-3.0.2/ili2pg.jar --schemaimport --dbhost localhost --dbport 5432 --dbdatabase rosebud2 --dbusr stefan --dbpwd ziegler12 --dbschema beispiel04 --nameByTopic --strokeArcs --createEnumTabs --modeldir . --models Buildings_V1
+
+
+# insert into...
+file://bsp04_insert_into.sql
+
+
+# export gml
+java -jar /home/stefan/Apps/ili2pg-3.0.2/ili2pg.jar --export --dbhost localhost --dbport 5432 --dbdatabase rosebud2 --dbusr stefan --dbpwd ziegler12 --dbschema beispiel04 --nameByTopic --models Buildings_V1 buildings.gml
+
+
+# pretty print gml
+xmllint -format -o buildings.gml buildings.gml
+
+
+# export xtf
+java -jar /home/stefan/Apps/ili2pg-3.0.2/ili2pg.jar --export --dbhost localhost --dbport 5432 --dbdatabase rosebud2 --dbusr stefan --dbpwd ziegler12 --dbschema beispiel04 --nameByTopic --models Buildings_V1 buildings.xtf
+
+
+# pretty print xtf
+xmllint -format -o buildings.xtf buildings.xtf
+
+
+Beispiel 5:
+===========
+
+# import itf
+java -jar /home/stefan/Apps/ili2pg-3.0.2/ili2pg.jar --import --dbhost localhost --dbport 5432 --dbdatabase rosebud2 --dbusr stefan --dbpwd ziegler12 --dbschema beispiel05 --nameByTopic --createEnumColAsItfCode --modeldir http://models.geo.admin.ch --models DM01AVCH24D ch_254900.itf
+
+
+# prepare empty geopackage
+java -jar /home/stefan/Apps/ili2gpkg-3.0.2/ili2gpkg.jar --schemaimport --nameByTopic --modeldir http://models.geo.admin.ch --models MOpublic03_ili2_v13 --dbfile mopublic.gpkg
+
+
+# SQL query in text file
+file://bsp05_mopublic_control_points_shp.sql
+
+
+# shapefile test with sql
+/usr/local/gdal_master/bin/ogr2ogr -f "ESRI Shapefile" mopublic_control_points.shp PG:"dbname='rosebud2' host='localhost' port='5432' user='stefan' password='ziegler12'" -sql @bsp05_mopublic_control_points_shp.sql
+
+
+# insert into geopackage
+/usr/local/gdal_master/bin/ogr2ogr -f GPKG mopublic.gpkg PG:"dbname='rosebud2' host='localhost' port='5432' user='stefan' password='ziegler12'" -append -sql @bsp05_mopublic_control_points_gpkg.sql -nln control_points_control_point
+
+
+# export xtf
+java -jar /home/stefan/Apps/ili2gpkg-3.0.2/ili2gpkg.jar --export --nameByTopic --modeldir http://models.geo.admin.ch --models MOpublic03_ili2_v13 --dbfile mopublic.gpkg  mopublic_gpkg.xtf
+
+
+
+Beispiel 6:
+===========
+
+# ogr vrt
+file://bsp06_dm01_fixpunkte.vrt
+
+
+# prepare empty geopackage
+java -jar /home/stefan/Apps/ili2gpkg-3.0.2/ili2gpkg.jar --schemaimport --nameByTopic --modeldir http://models.geo.admin.ch --models MOpublic03_ili2_v13 --dbfile mopublic_shp.gpkg
+
+
+# SQL query in text file
+file://bsp06_mopublic_control_points_gpkg.sql
+
+
+# insert into geopackage
+/usr/local/gdal_master/bin/ogr2ogr -f GPKG -dialect SQLITE -sql @bsp06_mopublic_control_points_gpkg.sql -append -nln control_points_control_point mopublic_shp.gpkg bsp06_dm01_fixpunkte.vrt
+
+
+# export xtf
+java -jar /home/stefan/Apps/ili2gpkg-3.0.2/ili2gpkg.jar --export --nameByTopic --modeldir http://models.geo.admin.ch --models MOpublic03_ili2_v13 --dbfile mopublic_shp.gpkg  mopublic_shp_gpkg.xtf
